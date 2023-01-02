@@ -19,6 +19,7 @@ if [ -z ! $HAS_DKP_PACMAN ]; then
   # dkp pacman installed, make it work
   HAS_PACMAN=${HAS_DKP_PACMAN}
   DKP="dkp-"
+fi
 
 main_platform_logic () {
   case "${PLATFORM}" in
