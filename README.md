@@ -8,7 +8,7 @@ Stuff would probably go wrong if you ran this on something like msys2, arch, etc
 
 Export the platform you want to compile for; e.x:
 ```
-# replace switch with wii, wiiu, pc, etc.
+# replace switch with wii, wiiu, all, etc.
 export PLATFORM=switch
 ```
 
