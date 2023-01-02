@@ -1,5 +1,5 @@
 #!/bin/bash
-# This is a (trimmed and fixed) dependency helper script to help set up requirements for running make
+# This is a (trimmed and modified) dependency helper script to help set up requirements for compiling hb-appstore and related.
 
 # this script should work when ran on these OSes:
 #   - archlinux (uses native pacman)
