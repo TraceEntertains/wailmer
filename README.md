@@ -12,9 +12,9 @@ export PLATFORM=switch
 
 Then run these commands:
 ```
-wget https://raw.githubusercontent.com/TraceEntertains/wailmer-ubuntu/main/wailmer-ubuntu.sh
-chmod +x ./wailmer-ubuntu.sh
-sudo ./wailmer-ubuntu.sh
+wget https://raw.githubusercontent.com/TraceEntertains/wailmer/main/wailmer.sh
+chmod +x ./wailmer.sh
+sudo ./wailmer.sh
 ```
 
 Then you have (hopefully) successfully built hb-appstore!
