@@ -41,7 +41,7 @@ main_platform_logic () {
         sudo ${DKP}pacman --noconfirm -S devkitPPC libogc gamecube-tools wii-sdl wii-sdl_gfx wii-sdl_image wii-sdl_mixer wii-sdl_ttf ppc-zlib ppc-bzip2 ppc-freetype ppc-mpg123 ppc-libpng ppc-pkg-config ppc-libvorbisidec ppc-libjpeg-turbo libfat-ogc
       ;;
     wiiu)   # uses wut
-        setup_fling_repo
+        setup_dkp_repo
         sudo ${DKP}pacman --noconfirm -S wut-linux wiiu-sdl2 devkitPPC wiiu-sdl2_gfx wiiu-sdl2_image wiiu-sdl2_ttf wiiu-sdl2_mixer ppc-zlib ppc-bzip2 ppc-freetype ppc-mpg123 ppc-libpng wiiu-curl ppc-pkg-config wiiu-pkg-config ppc-libvorbisidec
       ;;
   esac
