@@ -19,11 +19,4 @@ chmod +x ./wailmer-ubuntu.sh
 sudo ./wailmer-ubuntu.sh
 ```
 
-If it succeeds, you should then be able to run:
-```
-git clone --recursive https://gitlab.com/4TU/hb-appstore.git
-cd hb-appstore
-make $PLATFORM
-```
-
-Then you have successfully (hopefully) built hb-appstore!
+Then you have (hopefully) successfully built hb-appstore!
