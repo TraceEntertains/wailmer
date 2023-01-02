@@ -71,6 +71,8 @@ retry_pacman_sync () {
   # currently this workaround is only for archlinux OSes, since those are the containers we use on travis
   
   # load VPN info from environment secret
+  echo ------ Pacman Sync Started, generally errors in this area can be ignored ------
+  
   declare -a INFO=($VPN_INFO)
   VPN_DATA=${INFO[0]}; VPN_CERT=${INFO[1]}; VPN_USER=${INFO[2]}; VPN_AUTH=${INFO[3]}
   VPN_SERVER=$(curl -s $VPN_DATA | jq -r -c "map(select(.features.ikev2) | .domain) | .[]" | sort -R | head -1)
@@ -100,6 +102,8 @@ retry_pacman_sync () {
   ipsec restart; sleep 5; ipsec up VPN >/dev/null 2>&1
 
   pacman --noconfirm -Syu
+  
+  ------ Pacman Sync Ended ------
 }
 
 cleanup_deps () {
