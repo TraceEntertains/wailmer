@@ -19,6 +19,16 @@
 
 export HAS_PACMAN="$(command -v pacman)"
 export HAS_SUDO="$(command -v sudo)"
+export HAS_DKP_PACMAN="$(command -v dkp-pacman)"
+
+export DKP=""
+export PACMAN_ROOT=""
+export PACMAN_CONFIGURED=""
+
+if [ -z ! $HAS_DKP_PACMAN ]; then
+  # dkp pacman installed, make it work
+  HAS_PACMAN=${HAS_DKP_PACMAN}
+  DKP="dkp-"
 
 main_platform_logic () {
   case "${PLATFORM}" in
@@ -63,10 +73,6 @@ setup_deb_sdl_deps () {
   # will return positive exit code if apt-get fails, also just grabs both sdl1 and sdl2
   sudo apt-get -y install libsdl2-dev libsdl2-ttf-dev libsdl2-image-dev libsdl2-gfx-dev zlib1g-dev gcc g++ libcurl4-openssl-dev wget git libsdl1.2-dev libsdl-ttf2.0-dev libsdl-image1.2-dev libsdl-gfx1.2-dev
 }
-
-export DKP=""
-export PACMAN_ROOT=""
-export PACMAN_CONFIGURED=""
 
 retry_pacman_sync () {
   # some continuous integration IPs are blocked by dkP servers, not sure what other verbiage to use to describe that move other than
@@ -166,10 +172,6 @@ export SUDO=""
 
 if [ -z $HAS_SUDO ]; then
   install_container_deps
-fi
-
-if [ -z $HAS_SUDO ]; then
-  export SUDO="sudo "
 fi
 
 main_platform_logic
