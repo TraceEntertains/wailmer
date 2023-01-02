@@ -15,7 +15,7 @@ export DKP=""
 export PACMAN_ROOT=""
 export PACMAN_CONFIGURED=""
 
-if [ -z ! $HAS_DKP_PACMAN ]; then
+if [ ! -z $HAS_DKP_PACMAN ]; then
   # dkp pacman installed, make it work
   HAS_PACMAN=${HAS_DKP_PACMAN}
   DKP="dkp-"
