@@ -1,8 +1,5 @@
-# wailmer-ubuntu
-An attempt at making the Spheal/hb-appstore dependency installation process more painless.
-
-Also, only run on Ubuntu/WSL Ubuntu.
-Stuff would probably go wrong if you ran this on something like msys2, arch, etc. (Debian should work though)
+# wailmer
+An attempt at making the Spheal/hb-appstore building process more painless.
 
 # Usage
 
