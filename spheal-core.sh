@@ -5,7 +5,7 @@
 #   - archlinux (uses native pacman)
 #   - ubuntu:18.04 w/ dkp-pacman (flakey)
 # (aka, if you have either pacman or apt-get already)
-# TODO: add macOS, WSL (windows), and fedora builds using $OSTYPE checks
+# TODO: add macOS, and fedora builds using $OSTYPE checks
 
 export HAS_PACMAN="$(command -v pacman)"
 export HAS_SUDO="$(command -v sudo)"
