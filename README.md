@@ -1,6 +1,6 @@
 # wailmer
 An attempt at making the hb-appstore building process more painless.
-Almost all code made by the 4TU/fortheusers team.
+Almost all original code made by the 4TU/fortheusers team.
 
 # Usage
 
