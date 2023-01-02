@@ -6,6 +6,6 @@ chmod +x ./spheal-core.sh
 
 git clone https://github.com/fortheusers/hb-appstore --recursive
 cd hb-appstore
-make $PLATFORM
+make ${PLATFORM}
 
 echo Build attempted, if failed, please try to resolve errors and run "make $PLATFORM" again.
