@@ -155,13 +155,9 @@ setup_dkp_repo () {
 }
 
 setup_dkp_pacman () {
-  # WARNING: this URL for dkp's pacman will become out of date, check https://github.com/devkitPro/pacman/releases/ for the latest URL
-  # dkP team is aware of this issue and chooses to remove older download links specifically to not support using build scripts like this one
-  wget https://github.com/devkitPro/pacman/releases/download/v1.0.2/devkitpro-pacman-installer.pkg
-  sudo dpkg -i devkitpro-pacman-installer.pkg
-
-  DKP="dkp-"
-  PACMAN_ROOT="/opt/devkitpro/pacman/"
+  wget https://apt.devkitpro.org/install-devkitpro-pacman
+  chmod +x ./install-devkitpro-pacman
+  sudo ./install-devkitpro-pacman
 
   dkp-pacman --noconfirm -Syu || retry_pacman_sync
 }
