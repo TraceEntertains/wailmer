@@ -7,7 +7,7 @@ Stuff would probably go wrong if you ran this on something like msys2, arch, etc
 To run, do:
 
 ```
-wget https://github.com/something/iforgor.sh
+wget https://raw.githubusercontent.com/TraceEntertains/wailmer-ubuntu/main/wailmer-ubuntu.sh
 chmod +x ./wailmer-ubuntu.sh
 sudo ./wailmer-ubuntu.sh
 ```
