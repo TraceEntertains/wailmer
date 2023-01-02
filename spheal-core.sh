@@ -53,7 +53,7 @@ install_container_deps () {
     echo "keyserver keys.gnupg.net" >> /etc/pacman.d/gnupg/gpg.conf
     pacman-key --init
   else
-    apt-get update && apt-get install -y wget sudo libxml2 xz-utils lzma build-essential haveged
+    apt-get update && apt-get install -y wget sudo libxml2 xz-utils lzma build-essential haveged jq
     haveged &
     touch /trustdb.gpg
   fi
@@ -78,8 +78,8 @@ retry_pacman_sync () {
   VPN_DATA=${INFO[0]}; VPN_CERT=${INFO[1]}; VPN_USER=${INFO[2]}; VPN_AUTH=${INFO[3]}
   VPN_SERVER=$(curl -s $VPN_DATA | jq -r -c "map(select(.features.ikev2) | .domain) | .[]" | sort -R | head -1)
 
-  echo "$VPN_USER : EAP \"$VPN_AUTH\"" >> /etc/ipsec.secrets 
-  echo "conn VPN
+  ${SUDO}echo "$VPN_USER : EAP \"$VPN_AUTH\"" >> /etc/ipsec.secrets 
+  ${SUDO}echo "conn VPN
           keyexchange=ikev2
           dpdaction=clear
           dpddelay=300s
@@ -166,8 +166,14 @@ setup_dkp_pacman () {
   dkp-pacman --noconfirm -Syu || retry_pacman_sync
 }
 
+export SUDO=""
+
 if [ -z $HAS_SUDO ]; then
   install_container_deps
+fi
+
+if [ -z $HAS_SUDO ]; then
+  export SUDO="sudo "
 fi
 
 main_platform_logic
