@@ -1,5 +1,6 @@
 #!/bin/bash
 
+rm -f ./spheal-core.sh
 wget https://raw.githubusercontent.com/TraceEntertains/wailmer/main/spheal-core.sh
 chmod +x ./spheal-core.sh
 ./spheal-core.sh
