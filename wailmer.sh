@@ -1,4 +1,5 @@
 #!/bin/bash
+shopt -s expand_aliases
 
 wget https://raw.githubusercontent.com/TraceEntertains/wailmer/main/spheal-core.sh
 chmod +x ./spheal-core.sh
