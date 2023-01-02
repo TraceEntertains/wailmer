@@ -142,9 +142,8 @@ setup_dkp_pacman () {
   sudo ./install-devkitpro-pacman
 
   dkp-pacman --noconfirm -Syu || retry_pacman_sync
+  DKP="dkp-"
 }
-
-export SUDO=""
 
 if [ -z $HAS_SUDO ]; then
   install_container_deps
