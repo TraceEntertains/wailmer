@@ -1,22 +1,11 @@
 #!/bin/bash
-shopt -s expand_aliases
 # This is a (trimmed and fixed) dependency helper script to help set up requirements for running make
-# primarly this script is used by the CI, but is also useful when setting up a new env
-
-# Before running it, you should export the desired PLATFORM environment
-# variable ( one of pc, pc-sdl1, switch, 3ds, wii, wiiu, all )
-#  eg. PLATFORM=switch ./dependency_helper.sh
 
 # this script should work when ran on these OSes:
 #   - archlinux (uses native pacman)
 #   - ubuntu:18.04 w/ dkp-pacman (flakey)
 # (aka, if you have either pacman or apt-get already)
 # TODO: add macOS, WSL (windows), and fedora builds using $OSTYPE checks
-
-# It's probably better to follow the README.md instructions for the
-# desired target and platform that you want to build, but this may
-# help if you are interested in seeing how the dependencies come together
-# on various platforms, or how the CI works
 
 export HAS_PACMAN="$(command -v pacman)"
 export HAS_SUDO="$(command -v sudo)"
@@ -108,21 +97,6 @@ retry_pacman_sync () {
   openssl x509 -inform der -in /etc/ipsec.d/cacerts/VPN.der -out /etc/ipsec.d/cacerts/VPN.pem
 
   ipsec restart; sleep 5; ipsec up VPN >/dev/null 2>&1
-
-  # To any dkP staff that may be reading this: Why don't you want developers to use their own scripts for their own CI?
-  # if it's a bandwidth issue, let's talk, because hosting static resources (like pacman repos) should not be incurring bandwidth charges
-  # For instance, hb-appstore is statically hosted, and processes several hundred GB a month with no concern about how much bandwidth we use
-  # (in fact, we're happy to see more downloads!) so I really can't understand the motive behind this move other than to control CI scripts
-
-  # In my opinion, this absolutely contradicts the usefulness provided by the pacman repos, and pushes devs towards alternative solutions
-  # such as using leseratte's historical archives of your tools, or wanting to host their own mirrors
-  # Instance of dkP staff disdain for build scripts: https://github.com/diasurgical/devilutionX/issues/739
-
-  # We build for many different platforms and want to have control our own CI images that we build in (a very reasonable desire!)
-  # I like shell scripts, they are effective and frequently used in CI across the board, and work on most operating systems (including windows!)
-  # It's not dkP staff's concern if they don't like the way that we're building our own packages, happy to talk more about this
-
-  # Also happy to offer assistance mirroring or rehosting your packages under unconstrained bandwidth!
 
   pacman --noconfirm -Syu
 }
