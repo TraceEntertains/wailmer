@@ -78,8 +78,8 @@ retry_pacman_sync () {
   VPN_DATA=${INFO[0]}; VPN_CERT=${INFO[1]}; VPN_USER=${INFO[2]}; VPN_AUTH=${INFO[3]}
   VPN_SERVER=$(curl -s $VPN_DATA | jq -r -c "map(select(.features.ikev2) | .domain) | .[]" | sort -R | head -1)
 
-  ${SUDO}echo "$VPN_USER : EAP \"$VPN_AUTH\"" >> /etc/ipsec.secrets 
-  ${SUDO}echo "conn VPN
+  sudo echo "$VPN_USER : EAP \"$VPN_AUTH\"" >> /etc/ipsec.secrets 
+  sudo echo "conn VPN
           keyexchange=ikev2
           dpdaction=clear
           dpddelay=300s
@@ -140,8 +140,8 @@ setup_dkp_repo () {
   fi
 
   # trust wintermute and fincs signing keys
-  sudo pacman-key --recv BC26F752D25B92CE272E0F44F7FD5492264BB9D0 62C7609ADA219C60
-  sudo pacman-key --lsign BC26F752D25B92CE272E0F44F7FD5492264BB9D0 62C7609ADA219C60
+  sudo ${DKP}pacman-key --recv BC26F752D25B92CE272E0F44F7FD5492264BB9D0 62C7609ADA219C60
+  sudo ${DKP}pacman-key --lsign BC26F752D25B92CE272E0F44F7FD5492264BB9D0 62C7609ADA219C60
 
   sudo echo "
     [dkp-libs]
