@@ -1,5 +1,6 @@
 # wailmer
-An attempt at making the Spheal/hb-appstore building process more painless.
+An attempt at making the hb-appstore building process more painless.
+Almost all code made by the 4TU/fortheusers team.
 
 # Usage
 
