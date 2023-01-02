@@ -1,4 +1,5 @@
 #!/bin/bash
+shopt -s expand_aliases
 # This is a (trimmed and fixed) dependency helper script to help set up requirements for running make
 # primarly this script is used by the CI, but is also useful when setting up a new env
 
