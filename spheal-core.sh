@@ -141,6 +141,7 @@ setup_dkp_repo () {
 }
 
 setup_dkp_pacman () {
+  rm -f ./install-devkitpro-pacman
   wget https://apt.devkitpro.org/install-devkitpro-pacman
   chmod +x ./install-devkitpro-pacman
   sudo ./install-devkitpro-pacman
